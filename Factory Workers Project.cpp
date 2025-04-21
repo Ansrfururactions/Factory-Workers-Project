@@ -11,6 +11,10 @@ int main()
     ShiftSupervisor Bauwb(202000.22, 489);
     TeamLeader BAAAAAAAAAAAAAAAWWWWWWWWWB(400000.12, 70, 80);
 
+    bawb.printEmployee();
+    baub.printProductionWorker();
+    Bauwb.printShiftSupervisor();
+    BAAAAAAAAAAAAAAAWWWWWWWWWB.PrintTeamleader();
 
 
 
