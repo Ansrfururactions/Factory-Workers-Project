@@ -18,7 +18,7 @@ public:
 	string getName() const {return name;};
 	string getEmployeeNumber() const { return name;};
 	string getHireDate() const { return hireDate; };
-	void printEmployee();
+	void printEmployee(string getName());
 
 
 };
@@ -28,7 +28,7 @@ class productionWorker : public employee {
 public:
 		double hourlyPayRate;
 		int shift;
-		productionWorker(double HPR=12.5, int S = 1);
+		productionWorker(string name, double HPR=12.5, int S = 1);
 
 		void setHourlyPayRate();
 		void setShift();
@@ -45,7 +45,7 @@ public:
 	double annualSalary;
 	double annualProductionBonus;
 
-	ShiftSupervisor(double AS = 20000.00, double APB=200.00);
+	ShiftSupervisor(string name, double AS = 20000.00, double APB=200.00);
 	void setAnnualSalary();
 	double getAnnaulSalary() const { return annualSalary; };
 	double getAnnualProductionBonus() const { return annualProductionBonus; };
@@ -58,7 +58,7 @@ public:
 	int RequiredTrainingHours;
 	int AttendedTrainingHours;
 
-	TeamLeader(double MB, int RTH, int ATH);
+	TeamLeader(string name, double MB, int RTH, int ATH);
 
 	void setMonthlyBonus();
 	void setRequiredTrainingHours();
