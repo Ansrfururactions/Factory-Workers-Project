@@ -28,7 +28,7 @@ class productionWorker : public employee {
 public:
 		double hourlyPayRate;
 		int shift;
-		productionWorker(double HPR=12.5, int S = 5);
+		productionWorker(double HPR=12.5, int S = 1);
 
 		void setHourlyPayRate();
 		void setShift();
@@ -53,7 +53,7 @@ public:
 };
 
 class TeamLeader : public productionWorker {
-
+public:
 	double MonthlyBonus;
 	int RequiredTrainingHours;
 	int AttendedTrainingHours;

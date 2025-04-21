@@ -7,7 +7,7 @@ employee::employee(string n, string EN, string HD): name(n), employeeNumber(EN),
 
 void employee::setName()
 {
-
+ 
 }
 
 void employee::setEmployeeNumber()
@@ -32,12 +32,26 @@ productionWorker::productionWorker(double HPR, int S) : hourlyPayRate(HPR), shif
 
 void productionWorker::setHourlyPayRate()
 {
-
+	if (hourlyPayRate <= 0)
+	{
+		hourlyPayRate = 10000.00;
+	}
 }
 
 void productionWorker::setShift()
 {
-
+	if (shift  == 1)
+	{
+		cout << "this employee works the day shift" << endl;
+	}
+	else if (shift == 2)
+	{
+		cout << "this employee works the night shift" << endl;
+	}
+	else
+	{
+		cout << "invalid number" << endl;  
+	}
 }
 
 void productionWorker::printProductionWorker()
@@ -52,7 +66,10 @@ ShiftSupervisor::ShiftSupervisor(double AS, double APB): annualSalary(AS), annua
 }
 void ShiftSupervisor::setAnnualSalary()
 {
-
+	if (annualProductionBonus <= 0)
+	{
+		annualProductionBonus = 365.00;
+	}
 }
 void ShiftSupervisor::printShiftSupervisor()
 {
@@ -65,15 +82,24 @@ TeamLeader:: TeamLeader(double MB, int RTH, int ATH): MonthlyBonus(MB), Required
 }
 void TeamLeader::setMonthlyBonus()
 {
-
+	if (MonthlyBonus <= 0)
+	{
+		MonthlyBonus = 10.5;
+	}
 }
 void TeamLeader::setRequiredTrainingHours()
 {
-
+	if (RequiredTrainingHours <= 0)
+	{
+		RequiredTrainingHours = 9001;
+	}
 }
 void TeamLeader::setAttendedTrainingHours()
 {
-
+	if (AttendedTrainingHours < RequiredTrainingHours)
+	{
+		cout << "employee requires more training" << endl;
+	}
 }
 void TeamLeader::PrintTeamleader()
 {
