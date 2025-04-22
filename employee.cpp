@@ -20,12 +20,16 @@ void employee::setHireDate()
 
 }
 
-void employee::printEmployee(string getName())
+void employee::printEmployee()
 {
-	cout << name << ". " << employeeNumber << ", " << hireDate << endl;
+	cout << getName() << ". " << getEmployeeNumber() << ", " << getHireDate() << endl;
 }
 
-productionWorker::productionWorker(string name, double HPR, int S) : employee(name), hourlyPayRate(HPR), shift(S)
+employee::~employee()
+{
+}
+
+productionWorker::productionWorker(string name, string employeeNumber, string hireDate, double HPR, int S) : employee(name, employeeNumber, hireDate), hourlyPayRate(HPR), shift(S)
 {
 
 }
@@ -56,11 +60,15 @@ void productionWorker::setShift()
 
 void productionWorker::printProductionWorker()
 {
-	printEmployee;
+	printEmployee();
 	cout << hourlyPayRate << ", " << shift << endl;
 }
 
-ShiftSupervisor::ShiftSupervisor(string name, double AS, double APB): employee(name), annualSalary(AS), annualProductionBonus(AS)
+productionWorker::~productionWorker()
+{
+}
+
+ShiftSupervisor::ShiftSupervisor(string name, string employeeNumber, string hireDate, double AS, double APB):employee(name, employeeNumber, hireDate), annualSalary(AS), annualProductionBonus(AS)
 {
 
 }
@@ -73,10 +81,13 @@ void ShiftSupervisor::setAnnualSalary()
 }
 void ShiftSupervisor::printShiftSupervisor()
 {
-	printEmployee;
+	printEmployee();
 	cout << annualSalary << ", " << annualProductionBonus << endl;
 }
-TeamLeader:: TeamLeader(string name, double MB, int RTH, int ATH): productionWorker(name), MonthlyBonus(MB), RequiredTrainingHours(RTH), AttendedTrainingHours(ATH)
+ShiftSupervisor::~ShiftSupervisor()
+{
+}
+TeamLeader:: TeamLeader(string name, string employeeNumber, string hireDate, double MB, int RTH, int ATH): productionWorker(name, employeeNumber, hireDate), MonthlyBonus(MB), RequiredTrainingHours(RTH), AttendedTrainingHours(ATH)
 {
 
 }
@@ -105,4 +116,8 @@ void TeamLeader::PrintTeamleader()
 {
 	printProductionWorker();
 	cout << MonthlyBonus << ", " << RequiredTrainingHours << ", " << AttendedTrainingHours << endl;
+}
+
+TeamLeader::~TeamLeader()
+{
 }

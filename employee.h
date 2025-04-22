@@ -16,11 +16,11 @@ public:
 	void setEmployeeNumber();
 	void setHireDate();
 	string getName() const {return name;};
-	string getEmployeeNumber() const { return name;};
+	string getEmployeeNumber() const { return employeeNumber;};
 	string getHireDate() const { return hireDate; };
-	void printEmployee(string getName());
+	void printEmployee();
 
-
+	~employee();
 };
 
 class productionWorker : public employee {
@@ -28,7 +28,7 @@ class productionWorker : public employee {
 public:
 		double hourlyPayRate;
 		int shift;
-		productionWorker(string name, double HPR=12.5, int S = 1);
+		productionWorker(string name, string employeeNumber, string hireDate, double HPR=12.5, int S = 1);
 
 		void setHourlyPayRate();
 		void setShift();
@@ -36,7 +36,7 @@ public:
 		int getShift() const { return shift; };
 		void printProductionWorker();
 
-
+		~productionWorker();
 
 };
 
@@ -45,11 +45,12 @@ public:
 	double annualSalary;
 	double annualProductionBonus;
 
-	ShiftSupervisor(string name, double AS = 20000.00, double APB=200.00);
+	ShiftSupervisor(string name, string employeeNumber, string hireDate, double AS = 20000.00, double APB=200.00);
 	void setAnnualSalary();
 	double getAnnaulSalary() const { return annualSalary; };
 	double getAnnualProductionBonus() const { return annualProductionBonus; };
 	void printShiftSupervisor();
+	~ShiftSupervisor();
 };
 
 class TeamLeader : public productionWorker {
@@ -58,10 +59,11 @@ public:
 	int RequiredTrainingHours;
 	int AttendedTrainingHours;
 
-	TeamLeader(string name, double MB, int RTH, int ATH);
+	TeamLeader(string name, string employeeNumber, string hireDate, double MB, int RTH, int ATH);
 
 	void setMonthlyBonus();
 	void setRequiredTrainingHours();
 	void setAttendedTrainingHours();
 	void PrintTeamleader();
+	~TeamLeader();
 };
